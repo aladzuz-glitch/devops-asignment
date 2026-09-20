@@ -1,0 +1,31 @@
+name: QA Validation
+
+on:
+  push:
+    tags:
+      - 'QA-*'
+
+jobs:
+
+  qa:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest-cov
+
+      - name: Run QA Tests
+        run: |
+          pytest --cov=app --cov-fail-under=80
