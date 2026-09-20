@@ -1,0 +1,15 @@
+name: Moj Prvi CI
+
+on:
+  push:
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Pozdrav
+        run: echo "Zdravo Ajdine, CI radi!"
