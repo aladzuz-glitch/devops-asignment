@@ -37,3 +37,16 @@ def test_version():
         "version": "1.0.0",
         "environment": "dev"
     }
+
+
+def test_config():
+
+    response = app.test_client().get("/config")
+
+    assert response.status_code == 200
+
+    assert response.get_json() == {
+        "environment": os.getenv("APP_ENV"),
+        "owner": os.getenv("APP_OWNER"),
+        "version": os.getenv("APP_VERSION")
+    }
