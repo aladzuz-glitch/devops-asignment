@@ -15,7 +15,7 @@ def test_health():
     assert response.get_json() == {
         "status": "healthy"
     }
-    
+
 def test_home():
 
     response = app.test_client().get("/")
@@ -25,3 +25,15 @@ def test_home():
     data = response.get_json()
 
     assert data["project"] == "DevOps Assignment"
+
+
+def test_version():
+
+    response = app.test_client().get("/version")
+
+    assert response.status_code == 200
+
+    assert response.get_json() == {
+        "version": "1.0.0",
+        "environment": "dev"
+    }
