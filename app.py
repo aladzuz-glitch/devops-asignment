@@ -13,7 +13,7 @@ def home():
 def health():
     return jsonify({
         "status": "healthy"
-    }) 200
+    })
 
 @app.route("/version")
 def version():
