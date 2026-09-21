@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify
 
 app = Flask(__name__)
@@ -20,6 +21,15 @@ def version():
     return jsonify({
         "version": "1.0.0",
         "environment": "dev"
+    })
+
+@app.route("/config")
+def config():
+
+    return jsonify({
+        "environment": os.getenv("APP_ENV"),
+        "owner": os.getenv("APP_OWNER"),
+        "version": os.getenv("APP_VERSION")
     })
 
 if __name__ == "__main__":
