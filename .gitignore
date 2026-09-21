@@ -1,0 +1,12 @@
+# Terraform generated directories
+**/.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Python generated files
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
