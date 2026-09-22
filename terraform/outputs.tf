@@ -28,3 +28,8 @@ output "owner" {
 output "web_app_url" {
   value = "https://${azurerm_linux_web_app.devops_app.default_hostname}"
 }
+
+output "application_insights_connection_string" {
+  value     = azurerm_application_insights.appinsights.connection_string
+  sensitive = true
+}

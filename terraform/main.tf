@@ -47,6 +47,12 @@ resource "azurerm_linux_web_app" "devops_app" {
     APP_OWNER   = var.owner
     APP_VERSION = var.app_version
   }
+
+  identity {
+
+    type = "SystemAssigned"
+
+  }
 }
 
 resource "azurerm_storage_account" "tfstate" {
