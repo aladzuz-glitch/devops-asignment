@@ -16,7 +16,7 @@ resource "azurerm_service_plan" "devops_plan" {
   location            = azurerm_resource_group.devops_rg.location
 
   os_type  = "Linux"
-  sku_name = "F1"
+  sku_name = "B1"
 
   tags = {
     Environment = var.environment
