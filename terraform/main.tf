@@ -39,6 +39,10 @@ resource "azurerm_linux_web_app" "devops_app" {
 
   site_config {
     always_on = false
+    application_stack {
+      docker_image_name   = "flask-app:v1"
+      docker_registry_url = "https://ajdindevopsacr.azurecr.io"
+    }
   }
 
 
